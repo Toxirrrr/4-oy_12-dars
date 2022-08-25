@@ -60,7 +60,6 @@ input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
 
 .register__body {
     background-image: url(./../images/bgi_register-p.png);
-    background-position: ;
     background-repeat: no-repeat;
     background-position: center ;
 }
@@ -118,7 +117,6 @@ input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
     color: #7B809A;
 }
 
-
 .inputs:hover {
     box-shadow: 10px 10px #CED2D5;
     transform: translateX(-10px);
@@ -129,6 +127,7 @@ input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
     transform: translateX(-7.5px);
     box-shadow: 10px 10px #CED2D5;
 }
+
 .register__btn {
     background: linear-gradient(180deg, #E93B77 0%, #DA1F63 100%);
     border-radius: 8px;
@@ -139,22 +138,13 @@ input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
     color: #FFFFFF;
     transition: all 0.4s ease;
 }
+
 .register__btn:hover {
     transform: scale(1.05);
 }
+
 .register__btn:active {
     transform: scale(0.98);
-}
-.user__email {
-    
-}
-
-.form__email {
-    
-}
-
-.form__password {
-    
 }
 
 .form__sing-text {
@@ -176,16 +166,8 @@ input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
 
 /* LOGIN */
 
-.login {
-    
-}
-
 .form {
     display: flex;
-}
-
-.container {
-    
 }
 
 .login__left {
@@ -235,10 +217,6 @@ input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
     color: #7B809A;
 }
 
-.login__password {
-    
-}
-
 .input {
     max-width: 361px;
     width: 100%;
@@ -285,6 +263,13 @@ input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
 .main__bottm-wrapper {
     margin-top: 53px;
     margin-bottom: 47px;
+    display: flex;
+    gap: 15px;
+    text-align: center;
+    align-items: center;
+}
+.main__bottm-wrapper p{
+    margin: 0;
 }
 
 .list {
@@ -320,19 +305,7 @@ input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
     margin-bottom: 17px;
 }
 
-.item {
-    
-}
-
 .item1 {
     color: #344767;
     margin-bottom: 15px;
-}
-
-.item2 {
-    
-}
-
-.item3 {
-    
 }

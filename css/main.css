@@ -23,7 +23,6 @@
 
 .body__login {
     margin:0;
-    overflow-y: hidden;
 }
 
 .visually-hidden {
@@ -60,8 +59,8 @@ input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
 
 .register__body {
     background-image: url(./../images/bgi_register-p.png);
-    background-repeat: no-repeat;
     background-position: center ;
+    background-repeat: no-repeat;
 }
 
 .container__register {
@@ -175,7 +174,7 @@ input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
     background-image: url(./../images/bgi_login-p.png);
     width: 756px;
     border-radius: 0;
-    height: 1215px;
+    height: 100vh;
     background-repeat: no-repeat;
     background-color: #F85294;
     background-position: calc( 0px, 20px );
@@ -271,6 +270,9 @@ input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
 .main__bottm-wrapper p{
     margin: 0;
 }
+.main__bottm-wrapper h3{
+    margin: 0;
+}
 
 .list {
     list-style-type: none;
@@ -283,6 +285,11 @@ input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
     padding: 16px 36px 16px 24px;
     margin: 0;
     margin-bottom: 12px;
+}
+
+.wrapper__th td{
+    display: flex;
+    flex-direction: column;
 }
 
 .wrapper {

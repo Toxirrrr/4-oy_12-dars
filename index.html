@@ -11,51 +11,49 @@
   <title>Main Page</title>
 </head>
 
-<body class="">
+<body class="main__body" id="body">
   
   <div class="container d-flex w-100 justify-content-between" style="display: flex;">
     <div style=" margin-right: 350px;">
     </div>
     <div class="main__bottm-wrapper">
-      <h3 class="me"><button style="outline: none; border: none; margin-left: 10px;"></button></h3>
-      <p>Result: <span class="result"></span></p>
+      <p class="me"><button style="outline: none; border: none; margin-left: 10px;"></button></p>
+      <p class="h3">Result: <span class="result"></span></p>
       <button class="log_out btn-primary btn">Log out</button>
     </div>
   </div>
   
-  
   <div class="wrapper">
     <div class="wrapper__left">
       <h3 class="wrapper__header">Post</h3>
-      
-    </h3>
+    </div>
   </tbody>
   
   <template id="rowTemp">
     
-    <div class="list">
+    <z class="list wrapper__left">
       
       <div>
         
-        <div class="user__title item item1"></div>
-
+        <div class="user__title post__title item item1"></div>
+        
         <div class="user__body item item2"></div>
         
-        <div class="user__id item item3"></div>
+        <div class="user__id item item3" id="user__id"></div>
         
       </div>
       
       <div  style="margin-top: 10px; cursor: pointer;">
         
-        <button class="wrapper__btn wrapper__btn-delete" style="color: #F44334; background: transparent; border: none; outline: none; align-items: center "><img style="margin-bottom:4px; margin-right:4px;" src="./images/delete.svg" alt="delete__svg">DELETE</button>
+        <button class="wrapper__btn btn__delete" style="color: #F44334; background: transparent; border: none; outline: none; align-items: center "><img style="margin-bottom:4px; margin-right:4px;" src="./images/delete.svg" alt="delete__svg">DELETE</button>
         
-        <button class="wrapper__btn wrapper__btn-edit" style="color: #344767; background: transparent; border: none; outline: none; align-items: center; margin-left: 5px" ><img style="margin-bottom:4px; margin-right:4px;" src="./images/edit.svg" alt="edit__svg">EDIT</button>
+        <button class="wrapper__btn btn__dit" style="color: #344767; background: transparent; border: none; outline: none; align-items: center; margin-left: 5px" ><img style="margin-bottom:4px; margin-right:4px;" src="./images/edit.svg" alt="edit__svg">EDIT</button>
         
-        <button class="wrapper__btn wrapper__btn-save" style="color: #7EFF41; background: transparent; border: none; outline: none; align-items: center; margin-left: 5px;" ><img style="margin-bottom:4px; margin-right:4px;" src="./images/save.svg" alt="save__svg">SAVE</button>
+        <button class="wrapper__btn btn__ave" style="color: #7EFF41; background: transparent; border: none; outline: none; align-items: center; margin-left: 5px;" ><img style="margin-bottom:4px; margin-right:4px;" src="./images/save.svg" alt="save__svg">SAVE</button>
         
       </div>
       
-    </div>
+    </z>
     
   </template>
   

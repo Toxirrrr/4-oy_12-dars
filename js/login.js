@@ -8,7 +8,9 @@ elForm.addEventListener("submit", function(evt){
     evt.preventDefault();
     let formLogin = elFormLogin.value.trim();
     let formPassword = elFormPassword.value.trim();
-        fetch("https://fast-ravine-16741.herokuapp.com/api/auth", {
+
+
+    fetch("https://fast-ravine-16741.herokuapp.com/api/auth", {
     method:`POST`,
     headers: {
         "Content-Type":"application/json"
@@ -17,11 +19,13 @@ elForm.addEventListener("submit", function(evt){
         {
             "email": formLogin,
             "password": formPassword
+
+
         }
         ),
     })
     .then(res => res.json())
-    .then(data => {console.log(data)
+    .then(data => {
         
         if (!data.error) {
             localStorage.setItem("token", data.Authorization);
@@ -33,15 +37,4 @@ elForm.addEventListener("submit", function(evt){
             alert(data.error)
         }
     })
-    
-    // 
-    // function checkLogin(loginV, passwordV) {
-    //     if (formLogin.includes(loginV) && formPassword.includes(passwordV)) {
-    //         return true
-    //     }else {
-    //         return false
-    //     }
-    // }
-    
-
 })

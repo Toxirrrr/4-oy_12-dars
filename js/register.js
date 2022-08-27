@@ -35,7 +35,6 @@ elForm.addEventListener("submit", function(evt) {
 
         }else{
             alert(data.error)
-            console.log("error");
         }
     })
     

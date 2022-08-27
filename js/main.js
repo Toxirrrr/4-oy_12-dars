@@ -14,8 +14,45 @@ let elBtnEdit = document.querySelector(".wrapper__btn-edit")
 let elBtnSsave = document.querySelector(".wrapper__btn-save")
 let authToken = localStorage.getItem("token");
 let elMe = document.querySelector(".me");  
-let me = elMe;
 
+fetch("https://fast-ravine-16741.herokuapp.com/api/posts", {
+method: 'GET',
+headers: {
+    "Content-Type":"application/json",
+    "Authorization": authToken
+}})
+.then(res => res.json())
+.then(data => 
+    {if (!data.error) {
+        renderPosts(data.posts)
+        result.innerHTML = data.totalResults
+    }else {
+        window.location.href = "/login.html"    
+    }
+})
+
+elBtnLogOut.addEventListener("click", function() {
+    
+    localStorage.removeItem("token")
+    
+    window.location.href = "/login.html"
+    
+})
+
+
+fetch("https://fast-ravine-16741.herokuapp.com/api/users/me", {
+method: 'GET',
+headers: {
+    "Content-Type":"application/json",
+    "Authorization": authToken
+}})
+.then(res => res.json())
+.then(data => {
+    
+    if (!data.error) {
+        elMe.innerHTML= `${data.name} & ${data.email}`
+    }
+})
 
 
 function renderPosts(array) {
@@ -30,7 +67,7 @@ function renderPosts(array) {
         
         rowTemp.querySelector(".user__title").textContent = item.title;
         rowTemp.querySelector(".user__body").textContent = item.body;
-        rowTemp.querySelector(".user__id").textContent = item._id;
+        rowTemp.querySelector(".btn__delete").dataset.postId = item._id;
         
         newFragment.appendChild(rowTemp)
     }
@@ -38,43 +75,28 @@ function renderPosts(array) {
 }
 
 
-fetch("https://fast-ravine-16741.herokuapp.com/api/posts", {
-method: 'GET',
-headers: {
-    "Content-Type":"application/json",
-    "Authorization": authToken
-}})
-.then(res => res.json())
-.then(data => 
-    {
+elWrapper.addEventListener("click", function (evt) {
+    
+    let postItem = evt.target.dataset.postId;
+    
+    console.log(evt.target.dataset);
+    
+    if (postItem) {
+        fetch(`https://fast-ravine-16741.herokuapp.com/api/posts/${postItem}`, {
+        method: 'DELETE',
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization":authToken
+            
+        },
+    })
+    .then(res => res.json())
+    .then(data =>{
+        
         if (!data.error) {
-            renderPosts(data.posts)
-            result.innerHTML = data.totalResults
-        }else {
-            window.location.href = "/login.html"    
+        }else{
+            alert(data.error)
         }
     })
-    
-    elBtnLogOut.addEventListener("click", function() {
-        
-        localStorage.removeItem("token")
-        
-        window.location.href = "/login.html"
-        
-    })
-    
-    
-    fetch("https://fast-ravine-16741.herokuapp.com/api/users/me", {
-    method: 'GET',
-    headers: {
-        "Content-Type":"application/json",
-        "Authorization": authToken
-    }})
-    .then(res => res.json())
-    .then(data => 
-        {
-            if (!data.error) {
-                elMe.innerHTML=data.name
-            }
-        })
-        
+}
+})

@@ -7,31 +7,34 @@ let elTempIsAdmin = document.querySelector(".user__isAdmin");
 let elTempEdit = document.querySelector(".user__edit");
 let elTempRemove = document.querySelector(".user__remove");
 let elTempId = document.querySelector(".user__id");
-let result = document.querySelector(".result");  
+let result = document.querySelector(".result");
 let elBtn = document.querySelector(".wrapper__btn")
 let elBtnDelete = document.querySelector(".wrapper__btn-delete")
 let elBtnEdit = document.querySelector(".wrapper__btn-edit")
 let elBtnSsave = document.querySelector(".wrapper__btn-save")
 let authToken = localStorage.getItem("token");
-let elMe = document.querySelector(".me");  
+let elMe = document.querySelector(".me");
+let {log: log, clear: clear} = console
+
 
 fetch("https://fast-ravine-16741.herokuapp.com/api/posts", {
 method: 'GET',
 headers: {
-    "Content-Type":"application/json",
-    "Authorization": authToken
-}})
+    "Content-Type": "application/json",
+    // "Authorization": authToken
+}
+})
 .then(res => res.json())
-.then(data => 
-    {if (!data.error) {
+.then(data => {
+    if (!data.error) {
         renderPosts(data.posts)
         result.innerHTML = data.totalResults
-    }else {
-        window.location.href = "/login.html"    
+    } else {
+        window.location.href = "/login.html"
     }
 })
 
-elBtnLogOut.addEventListener("click", function() {
+elBtnLogOut.addEventListener("click", function () {
     
     localStorage.removeItem("token")
     
@@ -43,16 +46,20 @@ elBtnLogOut.addEventListener("click", function() {
 fetch("https://fast-ravine-16741.herokuapp.com/api/users/me", {
 method: 'GET',
 headers: {
-    "Content-Type":"application/json",
+    "Content-Type": "application/json",
     "Authorization": authToken
-}})
+}
+})
 .then(res => res.json())
 .then(data => {
     
     if (!data.error) {
-        elMe.innerHTML= `${data.name} & ${data.email}`
+        elMe.innerHTML = `Name:${data.name}   Email:${data.email}`
     }
 })
+
+
+
 
 
 function renderPosts(array) {
@@ -85,18 +92,24 @@ elWrapper.addEventListener("click", function (evt) {
         fetch(`https://fast-ravine-16741.herokuapp.com/api/posts/${postItem}`, {
         method: 'DELETE',
         headers: {
-            "Content-Type":"application/json",
-            "Authorization":authToken
+            "Content-Type": "application/json",
+            "Authorization": authToken
             
         },
     })
     .then(res => res.json())
-    .then(data =>{
+    .then(data => {
         
         if (!data.error) {
-        }else{
+            alert("Deleted")
+            location.reload()
+        } else {
             alert(data.error)
         }
     })
 }
-})
+}
+
+)
+
+
